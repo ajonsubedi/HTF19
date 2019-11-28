@@ -8,11 +8,11 @@ const routes: Routes = [
   },
   {
     path: 'crew-members',
-    loadChildren: () => import('./crew-members/crew-members.module').then( m => m.CrewMembersPageModule)
+    loadChildren: () => import('./pages/crew-members/crew-members.module').then( m => m.CrewMembersPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   }
 ];
 @NgModule({
