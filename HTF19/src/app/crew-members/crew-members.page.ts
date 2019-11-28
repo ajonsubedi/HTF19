@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CrewServiceService} from '../http/crew-service.service'
+import {CrewHttpService} from '../http/crew-http.service'
+import {Crew} from '../interfaces/Crew'
 @Component({
   selector: 'app-crew-members',
   templateUrl: './crew-members.page.html',
@@ -7,9 +8,17 @@ import {CrewServiceService} from '../http/crew-service.service'
 })
 export class CrewMembersPage implements OnInit {
 
-  constructor() { }
+  crewList:Crew[];
+
+  constructor(private screwService:CrewHttpService) { }
 
   ngOnInit() {
+
+    this.screwService.getCrews().subscribe((data:any[])=>{
+      this.crewList = data;
+    })
+
   }
+
 
 }
