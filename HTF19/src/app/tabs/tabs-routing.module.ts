@@ -24,6 +24,7 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../pages/crew-members/Crew-Members.module').then(m => m.CrewMembersPageModule)
+
           }
         ]
       },

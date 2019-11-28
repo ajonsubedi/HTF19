@@ -5,5 +5,9 @@
 </ion-header>
 
 <ion-content>
-
+ <ion-list>
+   <ion-item *ngFor = "let crew of crewList;">
+    <ion-label>{{crew.name}}</ion-label>
+   </ion-item>
+ </ion-list>
 </ion-content>

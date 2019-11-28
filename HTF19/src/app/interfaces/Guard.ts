@@ -1,9 +1,4 @@
-
-export interface LocationHistory{
-    timestamp: Date;
-    x: number;
-    y: number;
-}
+import {LocationHistory} from './LocationHistory';
 
 export interface Guard{
     modifiedDate: Date;
