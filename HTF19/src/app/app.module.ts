@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 
 import {HttpClientModule} from '@angular/common/http';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 
 
 @NgModule({

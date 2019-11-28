@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {CrewHttpService} from '../http/crew-http.service';
 import {Crew} from '../interfaces/Crew';
 import { AlertController } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+
 @Component({
   selector: 'app-crew-members',
   templateUrl: './crew-members.page.html',
@@ -42,7 +45,10 @@ export class CrewMembersPage implements OnInit {
         }, {
           text: 'Okay',
           handler: () => {
-            
+            // this.geoLocation.getCurrentPosition(result=>{
+            //   console.log(result.coords.latitude);
+            //   console.log(result.coords.longitude);
+            // })
             console.log('Confirm Okay');
           }
         }

@@ -25,6 +25,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
     "cordova-plugin-advanced-http": "^2.2.0",
+    "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googlemaps": "^2.6.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
@@ -61,7 +62,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-googlemaps": {},
-      "cordova-plugin-advanced-http": {}
+      "cordova-plugin-advanced-http": {},
+      "cordova-plugin-geolocation": {}
     }
   }
 }
