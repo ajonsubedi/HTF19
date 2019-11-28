@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CrewHttpService} from '../http/crew-http.service'
-import {Crew} from '../interfaces/Crew'
+import {CrewHttpService} from '../http/crew-http.service';
+import {Crew} from '../interfaces/Crew';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-crew-members',
   templateUrl: './crew-members.page.html',
@@ -10,7 +11,7 @@ export class CrewMembersPage implements OnInit {
 
   crewList:Crew[];
 
-  constructor(private screwService:CrewHttpService) { }
+  constructor(private screwService:CrewHttpService,private alertCtrl: AlertController) { }
 
   ngOnInit() {
 
@@ -19,6 +20,39 @@ export class CrewMembersPage implements OnInit {
     })
 
   }
+
+
+  async addMemberPopup() {
+    const alert = await this.alertCtrl.create({
+      header: 'Add Member',
+      inputs: [
+        {
+          name: 'Crew Name',
+          placeholder: 'Crew Name'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+
 
 
 }
