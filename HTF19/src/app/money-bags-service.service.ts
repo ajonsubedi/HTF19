@@ -5,10 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CrewHttpService {
-  
+export class MoneyBagsServiceService {
 
-  private APIUrl = 'http://52.157.94.246/crew';
+  private APIUrl = 'http://52.157.94.246/moneybags';
 
   constructor(private httpClient:HttpClient) { }
 
@@ -20,9 +19,9 @@ export class CrewHttpService {
   };
   
 
-  public getCrews(): Observable<object> {
+  public getMoneybags(): Observable<object> {
     console.log(this.httpOptions);
     return this.httpClient.get(this.APIUrl,this.httpOptions);
   }
-
+  
 }
