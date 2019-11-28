@@ -25,4 +25,25 @@ export class CrewHttpService {
     return this.httpClient.get(this.APIUrl,this.httpOptions);
   }
 
+  public 
+
+
+  public postCrew(name,x,y) {
+    return this.httpClient.post(this.APIUrl,{
+      "name":name,
+      "x":x,
+      "y":y
+    },this.httpOptions).subscribe(
+      val => {
+        console.log("Post call successful value returned in body", val);
+      },
+      error => {
+        console.log("Post call in error", error);
+      },
+      () => {
+        console.log("The Post observable is now completed.");
+      }
+    );
+  }
+
 }

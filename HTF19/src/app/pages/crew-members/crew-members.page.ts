@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {CrewHttpService} from '../http/crew-http.service';
-import {Crew} from '../interfaces/Crew';
+import {CrewHttpService} from 'src/app/http/crew-http.service';
+import {Crew} from 'src/app/interfaces/Crew';
 import { AlertController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NumberValueAccessor } from '@angular/forms';
 
 
 @Component({
@@ -13,8 +14,11 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 export class CrewMembersPage implements OnInit {
 
   crewList:Crew[];
+  lat:number;
+  lng:number;
 
-  constructor(private screwService:CrewHttpService,private alertCtrl: AlertController) { }
+
+  constructor(private screwService:CrewHttpService,private alertCtrl: AlertController, public geolocation: Geolocation) { }
 
   ngOnInit() {
 
@@ -30,7 +34,7 @@ export class CrewMembersPage implements OnInit {
       header: 'Add Member',
       inputs: [
         {
-          name: 'Crew Name',
+          name: 'CrewName',
           placeholder: 'Crew Name'
         }
       ],
@@ -44,21 +48,28 @@ export class CrewMembersPage implements OnInit {
           }
         }, {
           text: 'Okay',
-          handler: () => {
-            // this.geoLocation.getCurrentPosition(result=>{
-            //   console.log(result.coords.latitude);
-            //   console.log(result.coords.longitude);
-            // })
-            console.log('Confirm Okay');
-          }
+          handler: (alertData) => {
+           this.geolocation.getCurrentPosition().then((resp)=>{
+             
+              this.lat =  resp.coords.latitude;
+              this.lng = resp.coords.longitude;
+
+           })
+           //post
+           this.screwService.postCrew(alertData.CrewName,this.lat,this.lng);
+
+           //call again
+           this.screwService.getCrews().subscribe((data:any[])=>{
+            this.crewList = data;
+          })
+
+           console.log('Confirm Okay');
         }
-      ]
+
+        }]
     });
 
     await alert.present();
   }
-
-
-
 
 }

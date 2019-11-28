@@ -8,11 +8,15 @@ const routes: Routes = [
   },
   {
     path: 'crew-members',
-    loadChildren: () => import('./pages/crew-members/crew-members.module').then( m => m.CrewMembersPageModule)
+    loadChildren:() => import ('src/app/pages/crew-members/crew-members.module').then( m => m.CrewMembersPageModule)
+    // loadChildren: () => import('src/app/pages/crew-members/crew-members.module').then( m => m.CrewMembersPageModule)
+
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren:() => import('src/app/pages/home/home.module').then(m => m.HomePageModule)
+   // loadChildren: () => import('src/app/pages/home/home.module').then( m => m.HomePageModule)
+
   }
 ];
 @NgModule({

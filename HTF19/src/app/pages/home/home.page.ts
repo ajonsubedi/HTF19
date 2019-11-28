@@ -97,18 +97,18 @@ export class HomePage implements OnInit {
     });
 
         //location of a moneybag
-        let crewMember: Marker = this.map.addMarkerSync({
-          title: 'Crew 1',
-          icon: 'blue',
-          animation: 'DROP',
-          position: {
-            lat: ,
-            lng:
-          }
-        });
-        crewMember.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-          alert('crew member');
-        });
+        // let crewMember: Marker = this.map.addMarkerSync({
+        //   title: 'Crew 1',
+        //   icon: 'blue',
+        //   animation: 'DROP',
+        //   position: {
+        //     lat: ,
+        //     lng:
+        //   }
+        // });
+        // crewMember.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+        //   alert('crew member');
+        // });
 }
   async ngOnInit() {
     await this.platform.ready();

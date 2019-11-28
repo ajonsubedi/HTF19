@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { Geolocation } from "@ionic-native/geolocation";
-import { HomePageRoutingModule } from './home-routing.module';
+import {HomePageRoutingModule} from 'src/app/pages/home/home-routing.module';
 
-import { HomePage } from './home.page';
+import { HomePage } from 'src/app/pages/home/home.page';
 import {
   GoogleMaps,
   GoogleMap,
